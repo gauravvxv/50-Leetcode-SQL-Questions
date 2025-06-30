@@ -28,3 +28,6 @@
   SELECT v.customer_id, count(*) AS count_no_trans FROM Visits v 
 LEFT JOIN Transactions t ON v.visit_id = t.visit_id WHERE t.transaction_id IS NULL
 GROUP BY v.customer_id 
+
+-- 4. Rising Temperature
+   SELECT w.id AS Id FROM weather w INNER JOIN weather w2 ON w.recordDate = DATE_ADD(w2.recordDate, INTERVAL 1 DAY) WHERE w.Temperature > w2.Temperature;
